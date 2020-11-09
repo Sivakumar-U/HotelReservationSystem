@@ -1,21 +1,15 @@
 package com.blz.hotel_reservation;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HotelReservation {
 
-	public static void main(String[] args) {
-		System.out.println("Welcome to Hotel Reservation System");
+	Map<String, Integer> listOfHotels = new HashMap<String, Integer>();
+	HotelDetails hotelDetails = new HotelDetails();
+
+	public int getSize() {
+		listOfHotels = hotelDetails.getHotels();
+		return listOfHotels.size();
 	}
-
-	public void addHotelDetails() {
-		List<HotelDetails> hotelDetails = new ArrayList<>();
-
-		hotelDetails.add(new HotelDetails("Lakewood", 110));
-		hotelDetails.add(new HotelDetails("Bridgewood", 150));
-		hotelDetails.add(new HotelDetails("Ridgewood", 220));
-		System.out.println(hotelDetails);
-	}
-
 }

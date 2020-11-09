@@ -1,35 +1,16 @@
 package com.blz.hotel_reservation;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class HotelDetails {
 
-	private String name;
-	private int regularRate;
+	Map<String, Integer> regularRates = new HashMap<String, Integer>();
 
-	public HotelDetails(String name, int regularRate) {
-		super();
-		this.name = name;
-		this.regularRate = regularRate;
+	public Map<String, Integer> getHotels() {
+		regularRates.put("Lakewood", 110);
+		regularRates.put("Bridgewood", 160);
+		regularRates.put("Ridgewood", 220);
+		return regularRates;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getRegularRate() {
-		return regularRate;
-	}
-
-	public void setRegularRate(int regularRate) {
-		this.regularRate = regularRate;
-	}
-
-	@Override
-	public String toString() {
-		return "Hotel [name=" + name + ", regularRate=" + regularRate + "]";
-	}
-
 }
