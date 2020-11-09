@@ -11,7 +11,7 @@ public class HotelReservation {
 
 	Map<Integer, String> listOfHotels = new HashMap<Integer, String>();
 	Map<Integer, Integer> totalRates = new HashMap<Integer, Integer>();
-	List<String>hotelWithCheapRate=new ArrayList();
+	List<String>hotelWithCheapRate=new ArrayList<String>();
 	HotelDetails hotelDetails = new HotelDetails();
 
 	public int getSize() {
