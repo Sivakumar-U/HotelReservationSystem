@@ -1,5 +1,6 @@
 package com.blz.hotel_reservation;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -14,7 +15,8 @@ public class HotelReservationTest {
 	}
 
 	@Test
-	public void givenHotelDetails_WhenAdded_ShouldReturnTrue() {
-		obj.addHotelDetails();
+	public void givenHotelDetails_WhenAdded_ShouldReturnSize() {
+		int numOfHotels = obj.getSize();
+		Assert.assertEquals(3, numOfHotels);
 	}
 }
