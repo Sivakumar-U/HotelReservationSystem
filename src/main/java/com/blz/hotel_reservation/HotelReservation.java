@@ -15,10 +15,10 @@ public class HotelReservation {
 		listOfHotels = hotelDetails.getHotels();
 		return listOfHotels.size();
 	}
-	
+
 	public int getCheapestRate(int numOfDays) {
-		for (int i = 1; i <=getSize(); i++) {
-			totalRates.put(i, numOfDays * hotelDetails.getHotelRates(i));
+		for (int i = 1; i <= getSize(); i++) {
+			totalRates.put(i, numOfDays * hotelDetails.getHotelWeekdayRates(i));
 		}
 		int cheapestRate = Collections.min(totalRates.values());
 		return cheapestRate;
@@ -33,4 +33,5 @@ public class HotelReservation {
 		}
 		return hotelDetails.getHotelName(hotelId);
 	}
+
 }
