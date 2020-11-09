@@ -34,6 +34,7 @@ public class HotelReservationTest {
 		int cheapestRate = obj.getCheapestRate(totaldays);
 		String cheapestHotel = obj.getCheapestHotel(cheapestRate);
 		assertEquals("Lakewood", cheapestHotel);
-		System.out.println(cheapestHotel + ", Total Charges: $" + cheapestRate);
+		System.out.println(cheapestHotel + ", Total Rate : $" + cheapestRate);
+
 	}
 }
