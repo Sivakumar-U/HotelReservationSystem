@@ -24,20 +24,29 @@ public class HotelReservation {
 		return listOfHotels.get(id);
 	}
 
-	public int getRate(List<Integer> days, int hotelId) {
+	public int getRate(List<Integer> days, int hotelId, String customerType) {
 		int totalRate = 0;
-		for (Integer day : days) {
-			if (day != 6 && day != 7)
-				totalRate = totalRate + hotelDetails.getHotelWeekdayRatesForRewardCustomers(hotelId);
-			else
-				totalRate = totalRate + hotelDetails.getHotelWeekendRatesForRewardCustomers(hotelId);
+		if (customerType.equalsIgnoreCase("Regular")) {
+			for (Integer day : days) {
+				if (day != 6 && day != 7)
+					totalRate = totalRate + hotelDetails.getHotelWeekdayRatesForRegularCustomers(hotelId);
+				else
+					totalRate = totalRate + hotelDetails.getHotelWeekendRatesForRegularCustomers(hotelId);
+			}
+		} else if (customerType.equalsIgnoreCase("Reward")) {
+			for (Integer day : days) {
+				if (day != 6 && day != 7)
+					totalRate = totalRate + hotelDetails.getHotelWeekdayRatesForRewardCustomers(hotelId);
+				else
+					totalRate = totalRate + hotelDetails.getHotelWeekendRatesForRewardCustomers(hotelId);
+			}
 		}
 		return totalRate;
 	}
 
-	public int getCheapestRate(List<Integer> days) {
+	public int getCheapestRate(List<Integer> days, String customerType) {
 		for (int i = 1; i <= getSize(); i++) {
-			totalRates.put(i, getRate(days, i));
+			totalRates.put(i, getRate(days, i, customerType));
 		}
 		int cheapestRate = Collections.min(totalRates.values());
 		return cheapestRate;
