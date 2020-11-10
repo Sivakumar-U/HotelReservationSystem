@@ -8,7 +8,6 @@ public class HotelDetails {
 	Map<Integer, Integer> rateOfHotel = new HashMap<Integer, Integer>();
 	Map<Integer, String> nameOfHotel = new HashMap<Integer, String>();
 	Map<Integer, Integer> ratings = new HashMap<Integer, Integer>();
-	Map<Integer, String> hotels;
 
 	public Map<Integer, String> getHotels() {
 		nameOfHotel.put(1, "Lakewood");
@@ -30,7 +29,7 @@ public class HotelDetails {
 		rateOfHotel.put(3, 150);
 		return rateOfHotel.get(id);
 	}
-	
+
 	public int getHotelRatings(int id) {
 		ratings.put(1, 3);
 		ratings.put(2, 4);
@@ -39,7 +38,6 @@ public class HotelDetails {
 	}
 
 	public String getHotelName(int id) {
-		hotels = getHotels();
 		return nameOfHotel.get(id);
 	}
 }
