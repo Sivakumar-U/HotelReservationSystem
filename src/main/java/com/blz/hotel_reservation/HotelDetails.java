@@ -30,14 +30,11 @@ public class HotelDetails {
 		return rateOfHotel.get(id);
 	}
 
-	public int getHotelRatings(int id) {
+	public Map<Integer,Integer> getHotelRatings() {
 		ratings.put(1, 3);
 		ratings.put(2, 4);
 		ratings.put(3, 5);
-		return ratings.get(id);
+		return ratings;
 	}
 
-	public String getHotelName(int id) {
-		return nameOfHotel.get(id);
-	}
 }
