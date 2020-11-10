@@ -81,7 +81,7 @@ public class HotelReservationTest {
 		days.add(LocalDate.parse(date1, formatter).getDayOfWeek().getValue());
 		days.add(LocalDate.parse(date2, formatter).getDayOfWeek().getValue());
 		String bestRatedHotel = obj.getBestRatedHotel();
-		Assert.assertEquals("Ridgewood", bestRatedHotel);
+		assertEquals("Ridgewood", bestRatedHotel);
 		int id = obj.getHotelIndex(bestRatedHotel);
 		System.out.println("Best Rated Hotel : " + bestRatedHotel + ", Total charges :" + obj.getRate(days, id));
 	}
