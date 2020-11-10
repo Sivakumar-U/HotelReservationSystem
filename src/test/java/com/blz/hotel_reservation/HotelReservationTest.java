@@ -104,4 +104,19 @@ public class HotelReservationTest {
 		System.out.println(bestRatedCheapestHotel + ", Rating : " + rating + " and Total Charge : $" + cheapestRate);
 	}
 
+	@Test
+	public void givenDateRange_ForRegularCustomer_WhenCheapestBestRate_ShouldReturnHotel() {
+		String customerType = "regular";
+		List<String> dateRange = Arrays.asList("11Sep2020", "12Sep2020");
+		List<Integer> days = new ArrayList<>();
+		for (String eachDate : dateRange)
+			days.add(LocalDate.parse(eachDate, formatter).getDayOfWeek().getValue());
+		int cheapestRate = obj.getCheapestRate(days, customerType);
+		List<String> cheapestHotel = obj.getCheapestHotel(cheapestRate);
+		String bestRatedCheapestHotel = obj.getCheapestBestRatedHotel(cheapestHotel);
+		int rating = obj.getHotelRatingBasedOnHotel(bestRatedCheapestHotel);
+		assertEquals("Bridgewood", bestRatedCheapestHotel);
+		System.out.println(bestRatedCheapestHotel + ", Rating : " + rating + " and Total Charge : $" + cheapestRate);
+	}
+
 }
