@@ -16,21 +16,35 @@ public class HotelDetails {
 		return nameOfHotel;
 	}
 
-	public int getHotelWeekdayRates(int id) {
+	public int getHotelWeekdayRatesForRegularCustomers(int id) {
 		rateOfHotel.put(1, 110);
 		rateOfHotel.put(2, 150);
 		rateOfHotel.put(3, 220);
 		return rateOfHotel.get(id);
 	}
 
-	public int getHotelWeekendRates(int id) {
+	public int getHotelWeekendRatesForRegularCustomers(int id) {
 		rateOfHotel.put(1, 90);
 		rateOfHotel.put(2, 50);
 		rateOfHotel.put(3, 150);
 		return rateOfHotel.get(id);
 	}
 
-	public Map<Integer,Integer> getHotelRatings() {
+	public int getHotelWeekdayRatesForRewardCustomers(int id) {
+		rateOfHotel.put(1, 80);
+		rateOfHotel.put(2, 110);
+		rateOfHotel.put(3, 100);
+		return rateOfHotel.get(id);
+	}
+
+	public int getHotelWeekendRatesForRewardCustomers(int id) {
+		rateOfHotel.put(1, 80);
+		rateOfHotel.put(2, 50);
+		rateOfHotel.put(3, 40);
+		return rateOfHotel.get(id);
+	}
+
+	public Map<Integer, Integer> getHotelRatings() {
 		ratings.put(1, 3);
 		ratings.put(2, 4);
 		ratings.put(3, 5);
