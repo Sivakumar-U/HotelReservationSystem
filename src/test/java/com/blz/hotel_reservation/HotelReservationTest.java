@@ -68,9 +68,22 @@ public class HotelReservationTest {
 		int cheapestRate = obj.getCheapestRate(days);
 		List<String> cheapestHotel = obj.getCheapestHotel(cheapestRate);
 		String bestRatedCheapestHotel = obj.getCheapestBestRatedHotel(cheapestHotel);
-		int rating = obj.getRatingBasedOnHotel(bestRatedCheapestHotel);
+		int rating = obj.getHotelRatingBasedOnHotel(bestRatedCheapestHotel);
 		assertEquals("Bridgewood", bestRatedCheapestHotel);
 		System.out.println(bestRatedCheapestHotel + ", Rating : " + rating + " and Total Charge : $" + cheapestRate);
+	}
+
+	@Test
+	public void givenDateRange_withBestRating_ShouldReturnHotelName() {
+		String date1 = "11Sep2020";
+		String date2 = "12Sep2020";
+		List<Integer> days = new ArrayList<>();
+		days.add(LocalDate.parse(date1, formatter).getDayOfWeek().getValue());
+		days.add(LocalDate.parse(date2, formatter).getDayOfWeek().getValue());
+		String bestRatedHotel = obj.getBestRatedHotel();
+		Assert.assertEquals("Ridgewood", bestRatedHotel);
+		int id = obj.getHotelIndex(bestRatedHotel);
+		System.out.println("Best Rated Hotel : " + bestRatedHotel + ", Total charges :" + obj.getRate(days, id));
 	}
 
 }
