@@ -1,7 +1,7 @@
 package com.blz.hotel_reservation;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +48,7 @@ public class HotelReservation {
 		for (int i = 1; i <= getSize(); i++) {
 			totalRates.put(i, getRate(days, i, customerType));
 		}
-		int cheapestRate = Collections.min(totalRates.values());
+		int cheapestRate = totalRates.entrySet().stream().min(Comparator.comparing(Map.Entry::getValue)).get().getValue();
 		return cheapestRate;
 	}
 
@@ -69,7 +69,7 @@ public class HotelReservation {
 			for (String cheapHotel : cheapestHotel)
 				cheapestRatingHotel.put(i, getHotelRatingBasedOnHotel(cheapHotel));
 		}
-		int bestRating = Collections.max(cheapestRatingHotel.values());
+		int bestRating = cheapestRatingHotel.entrySet().stream().max(Comparator.comparing(Map.Entry::getValue)).get().getValue();
 		return getHotelBasedOnRating(bestRating);
 	}
 
@@ -97,7 +97,7 @@ public class HotelReservation {
 	}
 
 	public String getBestRatedHotel() {
-		int bestRating = Collections.max(ratings.values());
+		int bestRating = ratings.entrySet().stream().max(Comparator.comparing(Map.Entry::getValue)).get().getValue();
 		return getHotelBasedOnRating(bestRating);
 	}
 
